@@ -15,5 +15,6 @@ describe('Sample test group', function() {
   describe('My first test', function(){
       it('visits Kitchen Sink', function() {
           cy.visit('https://example.cypress.io');
+          cy.contains('hype');
       })
   });
