@@ -13,8 +13,12 @@ describe('Sample test group', function() {
   });
 
   describe('My first test', function(){
-      it('visits Kitchen Sink', function() {
+      it('checks if stuff is there', function() {
           cy.visit('https://example.cypress.io');
-          cy.contains('hype');
-      })
+          cy.contains('eq');
+      });
+      it('clicks the link type', function() {
+          cy.contains('type').click();
+          cy.url().should('include', '/commands/actions');
+      });
   });
