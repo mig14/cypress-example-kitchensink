@@ -21,4 +21,34 @@ describe('Sample test group', function() {
           cy.contains('type').click();
           cy.url().should('include', '/commands/actions');
       });
+      it('checks navBar title', function(){
+          cy.get('body > nav > div > div.navbar-header > a').contains('cypress');
+      });
+  });
+
+  describe('practice with cookies', function(){
+      it('gets cookies', function(){
+          //tbd
+      });
+  });
+
+  describe('Trying commands', function(){
+      it('Gets types and asserts', function() {
+          cy.visit('http://localhost:8080');
+          cy.get('body > div:nth-child(4) > div > div > ul > li:nth-child(3) > ul > li:nth-child(1) > a').click();
+
+          cy.url().should('include', '/commands/actions');
+          
+          let test_email, test_password;
+          test_email = 'test@test.test';
+          test_password = 'pass123';
+
+          cy.get('#email1')
+          .type(test_email)
+          .should('have.value', test_email);
+
+          cy.get('#password1')
+          .type(test_password)
+          .should('have.value', test_password);
+      });
   });
